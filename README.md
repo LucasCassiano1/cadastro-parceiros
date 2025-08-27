@@ -18,3 +18,5 @@ Projeto fullstack: Angular (frontend) + .NET (backend) + SQL Server (banco).
 1. Banco: usar Docker (SQL Server) ou Azure Data Studio + criar DB com `banco/scripts/create_schema.sql`.
 2. Backend: abrir `backend/` e rodar `dotnet run`.
 3. Frontend: abrir `frontend/` e rodar `ng serve`.
+
+<!-- Failed to upload "video-cadastro-parceiros.mp4" -->****
