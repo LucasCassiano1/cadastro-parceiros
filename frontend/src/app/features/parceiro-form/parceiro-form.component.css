@@ -1,0 +1,199 @@
+:root{
+  --bg-card: #ffffff;
+  --bg-card-2: #fbfbfb;
+  --muted: #6c757d;
+  --border: #ced4da;
+  --primary: #1976d2;
+  --primary-dark: #125ea3;
+  --success: #388e3c;
+  --success-dark: #2c6e2f;
+  --danger: #e15241;
+  --radius-lg: 16px;
+  --radius-md: 8px;
+  --shadow: 0 10px 28px rgba(0,0,0,0.08);
+  --font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.form-container{
+  max-width: 720px;
+  margin: 22px auto;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+  padding: 2.4rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+  background-color: #e6e6e6;
+}
+
+/* pequeno efeito de elevação */
+.form-container:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+}
+
+/* Título */
+.form-container h2{
+  text-align: center;
+  margin: 0 0 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* Estrutura dos campos */
+.form-group{ margin-bottom: 1.25rem; display: flex; flex-direction: column; margin-right: 30px;}
+
+/* .inline: layout horizontal, alinhado ao topo e com os filhos ocupando espaço proporcional */
+.inline {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;      /* alinha no topo (corrige o problema de estarem "baixos" / deslocados) */
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Garante que os filhos possam encolher corretamente e fiquem alinhados à esquerda */
+.inline > * {
+  min-width: 0;    
+  flex: 1;        
+  display: flex;
+  flex-direction: column;
+}
+
+.inline .fixed-120 {
+  flex: 0 0 120px;
+  max-width: 120px;
+  align-self: flex-end; 
+}
+
+/* Labels */
+.form-group label{
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  font-size: .95rem;
+  color: #495057;
+}
+
+/* Inputs / select / textarea */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: .95rem;
+  color: #222;
+  background: #fff;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  text-align: left; /* garante alinhamento do texto à esquerda */
+}
+
+/* Força inputs dentro de colunas fixas a ocupar todo espaço disponível */
+.inline .fixed-120 input,
+.inline .fixed-120 select { width: 100%; }
+
+/* Foco */
+input:focus,
+select:focus,
+textarea:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px rgba(25,118,210,0.06);
+  outline: none;
+  background: #fff;
+}
+
+/* Readonly */
+input[readonly]{ background: #fafafa; }
+
+/* Radios */
+.radio-row{ display:flex; gap: 18px; align-items:center; }
+.radio-row label{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:.95rem; cursor:pointer; }
+.radio-row input{ width:16px; height:16px; }
+
+/* Botões (buscar) */
+.form-group button,
+.inline button{
+  padding: .55rem .9rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary);
+  color: #000000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .14s ease, transform .08s ease;
+  align-self: flex-end;
+}
+
+/* Hover e disabled */
+.form-group button:hover,
+.inline button:hover{ background: var(--primary-dark); transform: translateY(-1px); }
+.form-group button:disabled,
+.inline button:disabled{ background: #adb5bd; cursor: not-allowed; transform: none; }
+
+/* Submit */
+button[type="submit"]{
+  width: 100%;
+  padding: .95rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: var(--success);
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: background .14s ease, transform .08s ease;
+  background-color: rgb(127, 241, 51);
+}
+
+button[type="submit"]:hover{transform: translateY(-1px); }
+button[type="submit"]:disabled{ background-color:(127, 241, 51); cursor: not-allowed; transform: none; }
+
+/* Erros e alerts */
+.error{
+  color: var(--danger);
+  font-size: .85rem;
+  margin-top: .4rem;
+}
+
+.alert{
+  margin-top: .6rem;
+  padding: .75rem 1rem;
+  border-radius: .6rem;
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.alert.success{
+  background: #e6ffed;
+  color: #155724;
+  border: 1px solid #b7f0c0;
+}
+
+.alert.error{
+  background: #ffeaea;
+  color: #842029;
+  border: 1px solid #f5b5b8;
+}
+
+/* Inputs inválidos - estilo visual */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
+  border-color: var(--danger);
+  box-shadow: 0 0 0 6px rgba(225,82,65,0.06);
+}
+
+/* Responsividade */
+@media (max-width: 860px){
+  .inline{ flex-direction: column; align-items: stretch; }
+  .inline > *{ width: 100% !important; }
+  .form-container{ padding: 1.6rem; margin: 12px; }
+}
+
+/* Ajuste para box CEP (se você usar uma wrapper .cep-box) */
+.cep-box { display:flex; gap:10px; align-items:flex-end; }
+.cep-box input { flex:1; }
+.cep-box .fixed-120-button { flex: 0 0 120px; max-width:120px; align-self:flex-end; }

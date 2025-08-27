@@ -1,0 +1,27 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ff1d21d[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32m# Cadastro de Parceiros Comerciais[m
+[32m+[m[32mProjeto fullstack: Angular (frontend) + .NET (backend) + SQL Server (banco).[m
+[32m+[m
+[32m+[m[32m## Estrutura[m
+[32m+[m[32m- `frontend/` — código Angular[m
+[32m+[m[32m- `backend/` — API em .NET[m
+[32m+[m[32m- `banco/scripts/create_schema.sql` — script de criação da tabela e procedure[m
+[32m+[m[41m [m
+[32m+[m[32m## Pré-requisitos[m[41m [m
+[32m+[m[32m1. Node.js + npm (Angular CLI) — recomendado Node 16+[m[41m [m
+[32m+[m[32m2. Angular CLI (npm i -g @angular/cli)[m[41m [m
+[32m+[m[32m3. NET SDK 6/7 (conforme projeto)[m[41m [m
+[32m+[m[32m4. Docker (recomendado para SQL Server) ou SQL Server instalado localmente[m[41m [m
+[32m+[m[32m5. Azure Data Studio (ou SQL Server Management Studio)[m[41m [m
+[32m+[m
+[32m+[m[32m## Como rodar[m[41m [m
+[32m+[m
+[32m+[m[32m1. Banco: usar Docker (SQL Server) ou Azure Data Studio + criar DB com `banco/scripts/create_schema.sql`.[m
+[32m+[m[32m2. Backend: abrir `backend/` e rodar `dotnet run`.[m
+[32m+[m[32m3. Frontend: abrir `frontend/` e rodar `ng serve`.[m
+[32m+[m[32m# cadastro-de-parceiros-comerciais[m

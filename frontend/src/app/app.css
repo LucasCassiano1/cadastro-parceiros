@@ -1,0 +1,28 @@
+.app-container {
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh; 
+}
+
+header {
+  margin-bottom: 32px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+
+  .subtitle {
+    margin: 8px 0 0;
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+}
+
+main {
+  margin-top: 24px;
+}

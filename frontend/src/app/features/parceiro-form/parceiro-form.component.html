@@ -1,0 +1,118 @@
+<div class="form-container">
+  <h2>Cadastro</h2>
+
+  <form [formGroup]="parceiroForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label>Personalidade*</label>
+      <div class="radio-row">
+        <label><input type="radio" formControlName="personalidade" value="FISICA" /> Física</label>
+        <label><input type="radio" formControlName="personalidade" value="JURIDICA" /> Jurídica</label>
+      </div>
+      <div class="error" *ngIf="showError('personalidade')">Selecione uma opção.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Razão Social / Nome*</label>
+      <input type="text" formControlName="razaoSocial" placeholder="Razão social ou nome" />
+      <div class="error" *ngIf="showError('razaoSocial')">Campo obrigatório (mín 2 caracteres).</div>
+    </div>
+
+    <div class="form-group">
+      <label>Documento (CPF/CNPJ)*</label>
+      <input
+        type="text"
+        formControlName="documento"
+        (input)="onDocumentoInput($event)"
+        (blur)="onDocumentoBlur()"
+        placeholder="CPF ou CNPJ"
+      />
+      <div class="error" *ngIf="showError('documento')">Documento inválido ou obrigatório.</div>
+    </div>
+
+    <div class="form-group">
+      <div>
+        <label>CEP*</label>
+        <input type="text" formControlName="cep" (input)="onCepInput($event)" (blur)="onCepBlur()" placeholder="00000-000" />
+        <div class="error" *ngIf="showError('cep')">CEP obrigatório.</div>
+      </div>
+      <div>
+        <button type="button" (click)="onBuscarCep()" [disabled]="loadingCep">{{ loadingCep ? 'Buscando...' : 'Buscar' }}</button>
+      </div>
+    </div>
+
+    <div class="form-group inline">
+      <div>
+        <label>UF*</label>
+        <select formControlName="uf">
+          <option value="">Selecione</option>
+          <option *ngFor="let u of ufs" [value]="u">{{ u }}</option>
+        </select>
+        <div class="error" *ngIf="showError('uf')">UF obrigatório.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group inline">
+        <label>Município*</label>
+        <input type="text" formControlName="municipio" />
+        <div class="error" *ngIf="showError('municipio')">Município obrigatório.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div>
+        <label>Logradouro*</label>
+        <input type="text" formControlName="logradouro" />
+        <div class="error" *ngIf="showError('logradouro')">Obrigatório.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div>
+        <label>Número*</label>
+        <input type="text" formControlName="numero" />
+        <div class="error" *ngIf="showError('numero')">Obrigatório.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Bairro*</label>
+      <input type="text" formControlName="bairro" />
+      <div class="error" *ngIf="showError('bairro')">Obrigatório.</div>
+    </div>
+
+    <div class="form-group">
+      <div>
+        <label>Email*</label>
+        <input type="email" formControlName="email" />
+        <div class="error" *ngIf="showError('email')">E-mail inválido.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div>
+        <label>Telefone*</label>
+        <input type="text" formControlName="telefone" (input)="onTelefoneInput($event)" placeholder="(11) 99999-9999" />
+        <div class="error" *ngIf="showError('telefone')">Telefone obrigatório.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Complemento</label>
+      <input type="text" formControlName="complemento" />
+    </div>
+
+    <div class="form-group">
+      <label>Observação</label>
+      <textarea formControlName="observacao" rows="3"></textarea>
+    </div>
+
+    <div *ngIf="successMsg" class="alert success">{{ successMsg }}</div>
+    <div *ngIf="errorMsg" class="alert error">{{ errorMsg }}</div>
+
+    <div>
+      <button type="submit" [disabled]="parceiroForm.invalid || submitting">{{ submitting ? 'Enviando…' : 'Cadastrar Parceiro' }}</button>
+    </div>
+  </form>
+</div>
