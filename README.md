@@ -19,4 +19,3 @@ Projeto fullstack: Angular (frontend) + .NET (backend) + SQL Server (banco).
 2. Backend: abrir `backend/` e rodar `dotnet run`.
 3. Frontend: abrir `frontend/` e rodar `ng serve`.
 
-<!-- Failed to upload "video-cadastro-parceiros.mp4" -->****
