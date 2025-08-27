@@ -4,7 +4,7 @@ Projeto fullstack: Angular (frontend) + .NET (backend) + SQL Server (banco).
 ## Estrutura
 - `frontend/` — código Angular
 - `backend/` — API em .NET
-- `banco/scripts/create_schema.sql` — script de criação da tabela e procedure
+- `banco de dados/script.sql` — script de criação da tabela e procedure
  
 ## Pré-requisitos 
 1. Node.js + npm (Angular CLI) — recomendado Node 16+ 
